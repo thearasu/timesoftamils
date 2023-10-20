@@ -1,6 +1,9 @@
 <template>
     <div class="articles">
         <div v-for="article in data.articles" class="article">
+            <div class="card-image">
+                <img :src="article.thumbnailUrl?article.thumbnailUrl:'/img/test.png'" alt="image">
+            </div>
             <div class="article-card">
                 <p class="title">{{ article.title }}</p>
                 <p class="author">Written by: {{ article.author.name }}</p>
@@ -30,27 +33,35 @@ const { data } = await useAsyncQuery(query, variables)
 
 <style scoped>
 .articles{
+    margin-top: 64px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .article{
-    padding: 10px 10px;
+    width: 256px;
+    margin: 8px 8px;
+    border: 0.5px dotted #000;
 }
 
 .article-card{
-    border: 1px solid black;
-    padding: 0px 10px;
+    padding: 4px 8px;
+    background-color: #fff;
+}
+
+.card-image img{
+    width: 256px;
 }
 
 .title{
-    font-weight: 600;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 .author{
     font-size: 0.8rem;
     color: gray;
+    font-weight: 600;
 }
 </style>

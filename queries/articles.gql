@@ -1,5 +1,0 @@
-query articlesQuery($per_page: Int!, $page: Int!){
-    articles(per_page: $per_page, page: $page){
-        title
-    }
-}
